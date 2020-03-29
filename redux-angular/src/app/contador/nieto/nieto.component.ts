@@ -9,10 +9,7 @@ import * as actions from './../contador.actions';
   styleUrls: ['./nieto.component.scss']
 })
 export class NietoComponent implements OnInit {
-  // @Input() contador;
-  // @Output() cambioContador = new EventEmitter();
-  contador: number;
-  cambioContador: any;
+  contador : number;
 
   constructor(
     private _store: Store<AppState>
@@ -26,12 +23,6 @@ export class NietoComponent implements OnInit {
   }
 
   reset() {
-
     this._store.dispatch( actions.reset() );
-
-    /** Antiguo operador
-     this.contador = 0;
-     this.cambioContador.emit(this.contador);
-     */
   }
 }

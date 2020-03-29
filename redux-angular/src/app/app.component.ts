@@ -36,13 +36,10 @@ export class AppComponent implements OnInit{
   }
 
   incrementarContador() {
-    // this.contador += 1;
     this._store.dispatch( actions.increment() );
   }
 
   handleCambioContador(event) {
-  // console.log("AppComponent -> handleCambioContador -> event", event)
-    // this.contador = event;
     this._store.dispatch( actions.decrement() );
   }
 }

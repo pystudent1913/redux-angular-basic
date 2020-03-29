@@ -9,10 +9,7 @@ import { AppState } from '../../app.component';
   styleUrls: ['./hijo.component.scss']
 })
 export class HijoComponent implements OnInit {
-  // @Input() contador: number;
-  // @Output() cambioContador = new EventEmitter();
-  contador: number;
-  cambioContador: any;
+  contador : number;
 
   constructor(
     private _store: Store<AppState>
@@ -27,24 +24,10 @@ export class HijoComponent implements OnInit {
 
   multiplicarContador() {
     this._store.dispatch( actions.multiply() );
-
-    /** Antiguo operador
-     this.contador *= 2;
-     this.cambioContador.emit(this.contador);
-   */
   }
 
   dividirContador() {
     this._store.dispatch( actions.divider() );
-
-    /** Antiguo operador
-     this.contador /= 2;
-     this.cambioContador.emit(this.contador);
-   */
   }
 
-  // handleCambioContador(event) {
-  //   this.contador = event;
-  //   this.cambioContador.emit(this.contador);
-  // }
 }
