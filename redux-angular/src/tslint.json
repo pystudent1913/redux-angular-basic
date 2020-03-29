@@ -1,0 +1,47 @@
+{
+    "extends": "../tslint.json",
+    "rules": {
+        "directive-selector": [
+            true,
+            "attribute",
+            ["cs", "app"],
+            "camelCase"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            ["cs", "app"],
+            "kebab-case"
+        ],
+        "component-class-suffix": [true, "Component", "Modal"],
+        "directive-class-suffix": [true, "Directive", "Modal"],
+        "typedef-whitespace": [
+            true,
+            {
+              "call-signature": "nospace",
+              "index-signature": "space",
+              "parameter": "nospace",
+              "property-declaration": "space",
+              "variable-declaration": "space"
+            },
+            {
+              "call-signature": "space",
+              "index-signature": "space",
+              "parameter": "space",
+              "property-declaration": "space",
+              "variable-declaration": "space"
+            }
+        ],
+        "no-inferrable-types": [false, "ignore-params", "ignore-properties"],
+        "comment-format": [true, "check-space", "check-uppercase", "allow-trailing-lowercase"],
+        "quotemark": [false, "single", "jsx-single"],
+        "no-conditional-assignment": true,
+        "no-shadowed-variable": false,
+        "member-ordering": [false, {"order": "fields-first"}],
+        "variable-name": {
+            "options": [
+              "allow-leading-underscore"
+            ]
+          }
+    }
+}
