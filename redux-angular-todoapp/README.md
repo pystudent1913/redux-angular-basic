@@ -1,10 +1,4 @@
-# ReduxAngular
-
-
-## Descripcion de la aplicacion
-
-Esta aplicacion esta hecha para demostrar como implementar redux en una aplicacion simple.
-
+# ReduxAngularTodoapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
