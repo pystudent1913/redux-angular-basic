@@ -15,21 +15,26 @@ export function contadorReducer(state, action) {
 }
 
 
-// export function contadorReducer(
-//     state: number = 10,
-//     action: Action
-// ) {
+/***
+ * Como se veeria la funcion por detras de manera simplificada
+ *
 
-//     switch ( action.type ) {
+export function contadorReducer(
+    state: number = 10,
+    action: Action
+) {
 
-//         case increment.type:
-//             return state + 1;
+    switch ( action.type ) {
 
-//         case decrement.type:
-//             return state - 1;
+        case increment.type:
+            return state + 1;
 
-//         default:
-//             return state;
-//     }
-// }
+        case decrement.type:
+            return state - 1;
 
+        default:
+            return state;
+    }
+}
+
+ */
