@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { increment, decrement, reset } from './contador.actions';
+import { increment, decrement, reset, multiply, divider } from './contador.actions';
 
 
 export const initialState = 0;
@@ -7,7 +7,9 @@ export const initialState = 0;
 const _contadorReducer = createReducer(initialState,
     on(increment, state => state + 1), // Cuando aparece increment el estado se aumenta en 1
     on(decrement, state => state - 1),
-    on(reset, state => 0)
+    on(reset, state => 0),
+    on(multiply, state => state * 2),
+    on(divider, state => state / 2)
 );
 
 export function contadorReducer(state, action) {
