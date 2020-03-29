@@ -2,14 +2,16 @@ import { createReducer, on } from '@ngrx/store';
 import { increment, decrement, reset, multiply, divider } from './contador.actions';
 
 
-export const initialState = 0;
+export const initialState = 20;
 
 const _contadorReducer = createReducer(initialState,
     on(increment, state => state + 1), // Cuando aparece increment el estado se aumenta en 1
     on(decrement, state => state - 1),
-    on(reset, state => 0),
-    on(multiply, state => state * 2),
-    on(divider, state => state / 2)
+    on(reset, state => initialState),
+    on(multiply, (state, { numero }) => state * numero ),
+    // Estructura
+    // on(label, function() {})
+    on(divider, (state, { numero }) => state / numero)
 );
 
 export function contadorReducer(state, action) {

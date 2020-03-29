@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as actions from './../contador.actions';
-import { AppState } from '../../app.component';
+import { Component, OnInit } from '@angular/core';
+import { Store, props } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducers';
+import { multiply, divider } from './../contador.actions';
 
 @Component({
   selector: 'app-hijo',
@@ -23,11 +23,18 @@ export class HijoComponent implements OnInit {
   }
 
   multiplicarContador() {
-    this._store.dispatch( actions.multiply() );
+    const props = {
+      numero : 3
+    };
+
+    this._store.dispatch( multiply(props) );
   }
 
   dividirContador() {
-    this._store.dispatch( actions.divider() );
+    const props = {
+      numero : 2
+    };
+    this._store.dispatch( divider(props) );
   }
 
 }
