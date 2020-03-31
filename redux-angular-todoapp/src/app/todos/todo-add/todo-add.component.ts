@@ -31,6 +31,7 @@ export class TodoAddComponent implements OnInit {
 
         const texto = this.txtInput.value;
 
+        // Usamos el dispatch para enviar la señal
         this._store.dispatch( actions.crearTodo(texto) );
 
         this.txtInput.reset();
