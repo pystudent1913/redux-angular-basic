@@ -1,4 +1,11 @@
 <ul class="todo-list">
-    <app-todo-item *ngFor="let todo of todos">
+    <!-- <app-todo-item
+        *ngFor="let todo of todos$ | async"
+        [todo]="todo">
+    </app-todo-item> -->
+
+    <app-todo-item
+        *ngFor="let todo of todos"
+        [todo]="todo">
     </app-todo-item>
 </ul>

@@ -11,6 +11,8 @@ import { AppState } from '../../app.reducer';
 export class TodoListComponent implements OnInit {
     todos: Todo[] = [];
 
+    // todos$: any;
+
     constructor(
         private _store: Store<AppState>
     ) { }
@@ -18,5 +20,9 @@ export class TodoListComponent implements OnInit {
     ngOnInit(): void {
         this._store.select('todos')
             .subscribe(todos => this.todos = todos);
+
+        // Asi se haria con async pipe
+        // this.todos$ = this._store.select('todos');
+
     }
 }

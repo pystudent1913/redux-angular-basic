@@ -6,9 +6,9 @@ export class Todo {
     public completado: boolean;
 
     constructor(
-        texto: string
+        text: string
     ) {
-        this.text = texto;
+        this.text = text;
         this.id = new Date().getTime();
 
         this.completado = false;
