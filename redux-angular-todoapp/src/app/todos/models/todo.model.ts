@@ -1,4 +1,5 @@
 
+// Usamos una clase como modelo para las referencias
 export class Todo {
     public id: number;
     public text: string;
