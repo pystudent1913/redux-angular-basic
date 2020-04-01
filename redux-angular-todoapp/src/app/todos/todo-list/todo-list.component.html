@@ -5,7 +5,7 @@
     </app-todo-item> -->
 
     <app-todo-item
-        *ngFor="let todo of todos"
+        *ngFor="let todo of todos | filtroTodo:filtroActual"
         [todo]="todo">
     </app-todo-item>
 </ul>

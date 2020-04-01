@@ -2,6 +2,7 @@ import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../models/todo.model';
 import { AppState } from '../../app.reducer';
+import { filtrosValidos } from 'src/app/filtro/filtro.actions';
 
 @Component({
     selector: 'app-todo-list',
@@ -10,7 +11,7 @@ import { AppState } from '../../app.reducer';
 })
 export class TodoListComponent implements OnInit {
     todos: Todo[] = [];
-
+    filtroActual: filtrosValidos;
     // todos$: any;
 
     constructor(
@@ -18,8 +19,11 @@ export class TodoListComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this._store.select('todos')
-            .subscribe(todos => this.todos = todos);
+        this._store
+            .subscribe( ({ todos, filtro }) => {
+                this.todos        = todos;
+                this.filtroActual = filtro;
+            });
 
         // Asi se haria con async pipe
         // this.todos$ = this._store.select('todos');
