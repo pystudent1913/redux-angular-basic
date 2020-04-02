@@ -1,5 +1,6 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,8 @@ export class RegisterComponent implements OnInit {
   registroForm: FormGroup;
 
   constructor(
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _authSrv: AuthService
   ) {
   }
 
@@ -24,7 +26,12 @@ export class RegisterComponent implements OnInit {
   }
 
   crearUsuario() {
-    const form = this.registroForm.value;
-    console.log('form', form);
+
+    if ( this.registroForm.invalid ) {
+      return ;
+    }
+
+    const { nombre, correo, password } = this.registroForm.value;
+    this._authSrv.crearUsuario(nombre, correo, password);
   }
 }
