@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   constructor(
+    public auth: AngularFireAuth
   ) { }
 
   crearUsuario(
@@ -13,6 +15,6 @@ export class AuthService {
     email: string,
     password: string) {
 
-      console.log('nombre', nombre);
+      // this.auth.signInWith
   }
 }
