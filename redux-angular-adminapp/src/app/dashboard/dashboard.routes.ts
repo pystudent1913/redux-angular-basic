@@ -4,6 +4,7 @@ import { IngresoEgresoComponent } from '../ingreso-egreso/ingreso-egreso.compone
 import { DetalleComponent } from '../ingreso-egreso/detalle/detalle.component';
 
 
+// Aqui aprendi algo interesante de como sirven las rutas hijas 
 export const dashboardRoutes: Routes = [
     { path: '', component: EstadisticaComponent },
     { path: 'ingreso-egreso', component: IngresoEgresoComponent },
