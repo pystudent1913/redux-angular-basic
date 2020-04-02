@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,9 +16,7 @@ export class AuthService {
     email: string,
     password: string) {
 
-      // this.auth.signInWith
+      return this.auth.createUserWithEmailAndPassword(email, password);
 
-      // 
-// 
   }
 }

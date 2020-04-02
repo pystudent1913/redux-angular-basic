@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+// import '@angular/fire';
 
 /// Cuando pasemos a prod angular pasara esto a environment.prod por nosotros
 import { environment } from 'src/environments/environment';

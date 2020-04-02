@@ -32,6 +32,11 @@ export class RegisterComponent implements OnInit {
     }
 
     const { nombre, correo, password } = this.registroForm.value;
-    this._authSrv.crearUsuario(nombre, correo, password);
+    this._authSrv.crearUsuario(nombre, correo, password)
+      .then( credenciales => {
+        console.log('RegisterComponent -> crearUsuario -> credenciales', credenciales);
+      }).catch( err => {
+        console.log('err', err);
+      });
   }
 }
