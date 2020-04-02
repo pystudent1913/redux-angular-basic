@@ -12,6 +12,14 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+// Angular Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+/// Cuando pasemos a prod angular pasara esto a environment.prod por nosotros
+import { environment } from 'src/environments/environment';
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -26,7 +34,10 @@ import { ReactiveFormsModule } from '@angular/forms';
    imports: [
       BrowserModule,
       AppRoutingModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      AngularFireModule.initializeApp(environment.firebase),
+      AngularFirestoreModule,
+      AngularFireAuthModule
    ],
    providers: [],
    bootstrap: [
