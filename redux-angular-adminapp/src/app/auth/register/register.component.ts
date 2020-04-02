@@ -1,6 +1,7 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _authSrv: AuthService
+    private _authSrv: AuthService,
+    private _router: Router
   ) {
   }
 
@@ -35,6 +37,7 @@ export class RegisterComponent implements OnInit {
     this._authSrv.crearUsuario(nombre, correo, password)
       .then( credenciales => {
         console.log('RegisterComponent -> crearUsuario -> credenciales', credenciales);
+        this._router.navigate(['/']);
       }).catch( err => {
         console.log('err', err);
       });
