@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-example-app-bcc5a": {
+      "hosting": {
+        "redux-angular-adminapp": [
+          "angular-example-app-bcc5a"
+        ]
+      }
+    }
+  }
+}
