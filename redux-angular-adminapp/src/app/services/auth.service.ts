@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +30,11 @@ export class AuthService {
 
   logoutUsuario() {
     return this.auth.signOut();
+  }
+
+  isLogged() {
+    return this.auth.authState.pipe(
+      map( fUser => fUser !== null )
+    );
   }
 }
