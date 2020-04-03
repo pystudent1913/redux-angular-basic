@@ -5,6 +5,9 @@ import { Usuario } from '../models/usuario.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import 'firebase/firestore';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.reducer';
+import * as auth from '../auth/auth.actions';
 
 
 @Injectable({
@@ -13,12 +16,29 @@ import 'firebase/firestore';
 export class AuthService {
 
   constructor(
-    public auth: AngularFireAuth,
-    public firestore: AngularFirestore
+    private _auth: AngularFireAuth,
+    public firestore: AngularFirestore,
+    private _store: Store<AppState>
   ) { }
 
   initAuthListener() {
-    this.auth.authState.subscribe( fuser => {
+    this._auth.authState.subscribe( fuser => {
+
+      if ( fuser ) {
+        this.firestore.doc(`${fuser.uid}/usuario`).valueChanges()
+          .subscribe( firestoreUser => {
+            const tempUser = new Usuario(
+              'asd',
+              'dssd',
+              'dsadsadsad'
+            );
+            this._store.dispatch( auth.setUser({ user: tempUser }) );
+          });
+
+      } else {
+        this._store.dispatch( auth.unsetUser() );
+      }
+
     });
   }
 
@@ -27,7 +47,7 @@ export class AuthService {
     email: string,
     password: string) {
 
-    return this.auth.createUserWithEmailAndPassword(email, password)
+    return this._auth.createUserWithEmailAndPassword(email, password)
       .then( ({ user }) => {
         const newUser = new Usuario(
           user.uid,
@@ -46,15 +66,15 @@ export class AuthService {
   }
 
   logearUsuario(correo, password) {
-    return this.auth.signInWithEmailAndPassword(correo, password);
+    return this._auth.signInWithEmailAndPassword(correo, password);
   }
 
   logoutUsuario() {
-    return this.auth.signOut();
+    return this._auth.signOut();
   }
 
   isLogged() {
-    return this.auth.authState.pipe(
+    return this._auth.authState.pipe(
       map( fUser => fUser !== null )
     );
   }
