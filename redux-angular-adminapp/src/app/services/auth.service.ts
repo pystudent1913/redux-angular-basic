@@ -11,6 +11,12 @@ export class AuthService {
     public auth: AngularFireAuth
   ) { }
 
+  initAuthListener() {
+    this.auth.authState.subscribe( fuser => {
+      console.log('fuser', fuser);
+    });
+  }
+
   crearUsuario(
     nombre: string,
     email: string,
@@ -20,5 +26,9 @@ export class AuthService {
 
   logearUsuario(correo, password) {
     return this.auth.signInWithEmailAndPassword(correo, password);
+  }
+
+  logoutUsuario() {
+    return this.auth.signOut();
   }
 }
