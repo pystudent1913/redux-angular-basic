@@ -20,10 +20,8 @@ export class SidebarComponent implements OnInit {
   logoutUsuario() {
     this._authSrv.logoutUsuario()
       .then(res => {
-        console.log("SidebarComponent -> logoutUsuario -> res", res)
         this._router.navigate(['/login']);
       }).catch(err => {
-        console.log('err -> ', err);
       });
   }
 

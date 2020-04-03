@@ -19,7 +19,6 @@ export class AuthService {
 
   initAuthListener() {
     this.auth.authState.subscribe( fuser => {
-      console.log('fuser', fuser);
     });
   }
 
@@ -39,7 +38,6 @@ export class AuthService {
         return this.firestore.doc(`${ user.uid }/usuario`)
           .set({ ...newUser })
           .then( () => {
-            console.log('success');
           });
 
       }).catch( err => {
