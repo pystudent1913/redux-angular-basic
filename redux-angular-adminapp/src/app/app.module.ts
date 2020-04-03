@@ -20,6 +20,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 /// Cuando pasemos a prod angular pasara esto a environment.prod por nosotros
 import { environment } from 'src/environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from './app.reducer';
 
 @NgModule({
    declarations: [
@@ -38,7 +40,8 @@ import { environment } from 'src/environments/environment';
       ReactiveFormsModule,
       AngularFireModule.initializeApp(environment.firebase),
       AngularFirestoreModule,
-      AngularFireAuthModule
+      AngularFireAuthModule,
+      StoreModule.forRoot( appReducers )
    ],
    providers: [],
    bootstrap: [
