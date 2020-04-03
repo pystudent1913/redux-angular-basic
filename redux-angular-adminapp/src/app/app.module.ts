@@ -20,8 +20,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 /// Cuando pasemos a prod angular pasara esto a environment.prod por nosotros
 import { environment } from 'src/environments/environment';
-import { StoreModule } from '@ngrx/store';
 import { appReducers } from './app.reducer';
+
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
    declarations: [
@@ -41,7 +43,11 @@ import { appReducers } from './app.reducer';
       AngularFireModule.initializeApp(environment.firebase),
       AngularFirestoreModule,
       AngularFireAuthModule,
-      StoreModule.forRoot( appReducers )
+      StoreModule.forRoot( appReducers ),
+      StoreDevtoolsModule.instrument({
+         maxAge: 25, // Retains last 25 states
+         logOnly: environment.production, // Restrict extension to log-only mode
+      }),
    ],
    providers: [],
    bootstrap: [
