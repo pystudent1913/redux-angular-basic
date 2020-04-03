@@ -65,8 +65,12 @@
               <button
                 class="btn btn-primary submit-btn btn-block"
                 type="submit"
-                [disabled]="registroForm.invalid">Crear cuenta</button>
+                [disabled]="registroForm.invalid">
+                <i *ngIf="loading" class="fa fa-spin fa-sync"></i>
+                {{ loading ? 'Cargando...' : 'Crear cuenta' }}
+              </button>
             </div>
+
             <div class="text-block text-center my-3">
               <span class="text-small font-weight-semibold">ya tienes una cuenta?</span>
               <br>

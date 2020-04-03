@@ -47,8 +47,10 @@
               <button
                 class="btn btn-primary submit-btn btn-block"
                 [disabled]="loginForm.invalid"
-                (click)="login()">
-                Login
+                (click)="loading ? '' : login()">
+
+                <i *ngIf="loading" class="fa fa-spin fa-sync"></i>
+                {{ loading ? 'Esperando' : 'Login' }}
               </button>
             </div>
             <div class="text-block text-center my-3">
