@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '../app.reducer';
 import { Store } from '@ngrx/store';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,9 +15,13 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.store.select('auth').subscribe( user => {
-      console.log('user', user)
-    })
+    this.store.select('auth')
+      .pipe(
+        filter(auth => auth.user != null)
+      )
+      .subscribe( user => {
+        console.log('user', user);
+      });
   }
 
 }
