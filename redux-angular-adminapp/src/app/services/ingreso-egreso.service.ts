@@ -35,11 +35,10 @@ export class IngresoEgresoervice {
 
 
     initIngresoEgresoListener(uid: string) {
-        this.firestore.collection(`${ uid }/ingresos-egresos/items`)
+        return this.firestore.collection(`${ uid }/ingresos-egresos/items`)
             .snapshotChanges() // Nos sirve para obtener info mas detallada de lo que trae firebase
             .pipe(
                 map(snapshot => {
-                    console.log('snapshot', snapshot);
                     return snapshot.map( ( { payload: { doc } } ) => {
                         return {
                             uid: doc.id,
@@ -47,9 +46,6 @@ export class IngresoEgresoervice {
                         };
                     });
                 })
-            )
-            .subscribe( res => {
-                console.log('res', res);
-            });
+            );
     }
 }

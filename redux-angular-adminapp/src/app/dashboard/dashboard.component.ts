@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { IngresoEgresoervice } from '../services/ingreso-egreso.service';
+import * as ingresoEgresoActions from '../ingreso-egreso/ingreso-egreso.actions';
+import { IngresoEgreso } from '../models/ingreso-egreso.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,9 +15,11 @@ import { IngresoEgresoervice } from '../services/ingreso-egreso.service';
 export class DashboardComponent implements OnInit, OnDestroy {
 
   userSubs$: Subscription;
+  ingresoEgresoSubs$: Subscription;
+
   constructor(
     private store: Store<AppState>,
-    private ingresoEgresoSrv: IngresoEgresoervice
+    private ingresoEgresoSrv: IngresoEgresoervice,
   ) { }
 
   ngOnInit() {
@@ -25,14 +29,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
       )
       .subscribe( ({user}) => {
         console.log('user', user);
-        this.ingresoEgresoSrv.initIngresoEgresoListener( user.uid );
+        this.ingresoEgresoSubs$ = this.ingresoEgresoSrv.initIngresoEgresoListener( user.uid )
+          .subscribe((res: IngresoEgreso[]) => {
+            console.log('ingresos', res);
+            this.store.dispatch(
+              ingresoEgresoActions.setItems({ items : res })
+            );
+          });
 
       });
   }
 
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    this.userSubs$.unsubscribe()
+    // Called once, before the instance is destroyed.
+    // Add 'implements OnDestroy' to the class.
+    this.userSubs$.unsubscribe();
+    this.ingresoEgresoSubs$.unsubscribe();
   }
 }
