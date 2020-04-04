@@ -10,8 +10,6 @@ export interface AppState {
     ingresosEgresos: ingresoEgreso.State;
 }
 
-
-
 export const appReducers: ActionReducerMap<AppState> = {
     ui: ui.uiReducer,
     auth: auth.authReducer,
