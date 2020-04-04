@@ -34,7 +34,10 @@ export class IngresoEgresoervice {
     }
 
 
-    initIngresoEgresoListener() {
-        
+    initIngresoEgresoListener(uid: string) {
+        this.firestore.collection(`${ uid }/ingresos-egresos/items`).valueChanges()
+            .subscribe( res => {
+                console.log('res', res)
+            })
     }
 }
