@@ -3,6 +3,7 @@ import { AppState } from '../app.reducer';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { IngresoEgresoervice } from '../services/ingreso-egreso.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   userSubs$: Subscription;
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private ingresoEgresoSrv: IngresoEgresoervice
   ) { }
 
   ngOnInit() {
@@ -21,8 +23,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
       .pipe(
         filter(auth => auth.user != null)
       )
-      .subscribe( user => {
+      .subscribe( ({user}) => {
         console.log('user', user);
+        this.ingresoEgresoSrv.initIngresoEgresoListener( user.uid );
+
       });
   }
 
