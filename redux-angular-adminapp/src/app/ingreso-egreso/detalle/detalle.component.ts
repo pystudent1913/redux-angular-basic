@@ -10,11 +10,7 @@ import { IngresoEgreso } from '../../models/ingreso-egreso.model';
 })
 export class DetalleComponent implements OnInit {
 
-  ingresosEgresos2: any[] = [{
-    descripcion: 'dasdsa',
-    monto: 222,
-    tipo: 'dsd'
-  }];
+  ingresosEgresos2: IngresoEgreso[] = [];
 
   constructor(
     private store: Store<AppState>
@@ -23,11 +19,10 @@ export class DetalleComponent implements OnInit {
   ngOnInit() {
     this.store.select('ingresosEgresos')
       .subscribe(({ items }) => {
-        // this.ingresosEgresos2 = items;
-        // console.log('this.ingresosEgresos -> ', this.ingresosEgresos2);
+        this.ingresosEgresos2 = items;
+        console.log('this.ingresosEgresos -> ', this.ingresosEgresos2);
       });
 
-    console.log("DetalleComponent -> this.ingresosEgresos2", this.ingresosEgresos2)
   }
 
 }

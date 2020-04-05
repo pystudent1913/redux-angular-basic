@@ -1,43 +1,38 @@
-<div *ngFor="let item of ingresosEgresos2">
-  hola
-</div>
 
 <div class="row">
   <div class="col-12">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Detalle de ingreso egreso</h4>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Detalle de ingreso egreso</h4>
 
-          <table class="table">
-            <thead>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Monto</th>
+              <th>Tipo</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <ng-container *ngFor="let item of ingresosEgresos2">
               <tr>
-                <th>Descripción</th>
-                <th>Monto</th>
-                <th>Tipo</th>
-                <th></th>
+                <td>{{ item.descripcion }}</td>
+                <td>{{ item.monto }}</td>
+                <td>{{ item.tipo }}</td>
+                <td>
+                  <button class="btn btn-danger">
+                    <i class="fa fa-trash"></i>
+                    Borrar
+                  </button>
+                </td>
               </tr>
-            </thead>
+            </ng-container>
+          </tbody>
 
-            <tbody>
-              <div *ngFor="let item of ingresosEgresos2">
-                <tr>
-                  <td>{{ item.descripcion }}</td>
-                  <td>{{ item.monto }}</td>
-                  <td>{{ item.tipo }}</td>
-                  <td>
-                    <button class="btn btn-danger">
-                      <i class="fa fa-trash"></i>
-                      Borrar
-                    </button>
-                  </td>
-                </tr>
-              </div>
-            </tbody>
-
-          </table>
-
-
-        </div>
+        </table>
       </div>
+    </div>
   </div>
 </div>
