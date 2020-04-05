@@ -6,11 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Firebase
@@ -31,6 +26,8 @@ import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 import { EstadisticaComponent } from './ingreso-egreso/estadistica/estadistica.component';
 
 import { ChartsModule } from 'ng2-charts';
+import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -38,16 +35,15 @@ import { ChartsModule } from 'ng2-charts';
       AppComponent,
       DashboardComponent,
       IngresoEgresoComponent,
-      LoginComponent,
-      RegisterComponent,
-      FooterComponent,
-      NavbarComponent,
-      SidebarComponent,
       DetalleComponent,
       OrdenIngresoPipe,
       EstadisticaComponent
    ],
    imports: [
+      // Mis modulos propios
+      AuthModule,
+      SharedModule,
+      // Demas
       AppRoutingModule,
       BrowserModule,
       CommonModule,

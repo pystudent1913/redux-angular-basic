@@ -44,7 +44,7 @@ export class AuthService {
 
       } else {
         this._user = null;
-        this.userSubscription$.unsubscribe();
+        this.userSubscription$?.unsubscribe();
         this._store.dispatch( auth.unsetUser() );
 
         // Vamos a borrar la informacion de la persona
