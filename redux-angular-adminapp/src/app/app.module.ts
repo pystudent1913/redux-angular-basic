@@ -30,6 +30,9 @@ import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
 import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 import { EstadisticaComponent } from './ingreso-egreso/estadistica/estadistica.component';
 
+import { ChartsModule } from 'ng2-charts';
+
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -57,6 +60,7 @@ import { EstadisticaComponent } from './ingreso-egreso/estadistica/estadistica.c
          maxAge: 25, // Retains last 25 states
          logOnly: environment.production, // Restrict extension to log-only mode
       }),
+      ChartsModule
    ],
    providers: [],
    bootstrap: [
