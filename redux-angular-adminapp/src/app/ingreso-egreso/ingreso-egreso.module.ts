@@ -14,6 +14,8 @@ import { ChartsModule } from 'ng2-charts';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardRoutesModule } from '../dashboard/dashboard-router.module';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { StoreModule } from '@ngrx/store';
+import { ingresoEgresoReducer } from './ingreso-egreso.reducers';
 
 @NgModule({
     declarations: [
@@ -25,6 +27,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     ],
     imports: [
         CommonModule,
+        StoreModule.forFeature('ingresosEgresos', ingresoEgresoReducer),
         ReactiveFormsModule,
         FormsModule,
         SharedModule, // Esto se da porque usamos los componentes del sharedmodule

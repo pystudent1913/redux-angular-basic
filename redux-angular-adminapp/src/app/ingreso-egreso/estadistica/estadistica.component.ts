@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from '../../app.reducer';
 import { Store } from '@ngrx/store';
 import { IngresoEgreso } from '../../models/ingreso-egreso.model';
 
 
 import { ChartType } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
+import { AppStateWithIngreso } from '../ingreso-egreso.reducers';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class EstadisticaComponent implements OnInit {
 
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppStateWithIngreso>
   ) { }
 
   ngOnInit() {

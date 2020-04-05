@@ -27,7 +27,6 @@ export class IngresoEgresoComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadingSubs$ = this._store.select('ui').subscribe(ui => {
-      console.log("IngresoEgresoComponent -> ngOnInit -> ui", ui)
       this.loading = ui.isLoading;
     });
 
