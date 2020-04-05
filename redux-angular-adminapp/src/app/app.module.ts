@@ -21,7 +21,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CommonModule } from '@angular/common';
 
 import { AuthModule } from './auth/auth.module';
-import { IngresoEgresoModule } from './ingreso-egreso/ingreso-egreso.module';
+// import { IngresoEgresoModule } from './ingreso-egreso/ingreso-egreso.module';
 
 
 @NgModule({
@@ -31,7 +31,7 @@ import { IngresoEgresoModule } from './ingreso-egreso/ingreso-egreso.module';
    imports: [
       // Mis modulos propios
       AuthModule,
-      IngresoEgresoModule,
+      // IngresoEgresoModule,
       // Demas
       AppRoutingModule,
       BrowserModule,

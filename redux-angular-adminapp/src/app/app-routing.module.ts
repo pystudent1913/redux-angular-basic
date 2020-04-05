@@ -8,7 +8,11 @@ import { CommonModule } from '@angular/common';
 const routes: Routes = [
   { path: 'login' , component: LoginComponent },
   { path: 'register' , component: RegisterComponent },
-
+  {
+    path: '',
+    loadChildren: () => import('./ingreso-egreso/ingreso-egreso.module')
+                          .then(m => m.IngresoEgresoModule)
+  },
   { path: '**' , redirectTo: '' }
 ];
 
