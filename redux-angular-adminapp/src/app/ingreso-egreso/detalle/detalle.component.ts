@@ -25,7 +25,6 @@ export class DetalleComponent implements OnInit, OnDestroy {
     this.ingresosEgresosSubs$ = this.store.select('ingresosEgresos')
       .subscribe(({ items }) => {
         this.ingresosEgresos = items;
-        console.log('this.ingresosEgresos -> ', this.ingresosEgresos);
       });
 
   }
@@ -35,12 +34,9 @@ export class DetalleComponent implements OnInit, OnDestroy {
   }
 
   borrar(uidItem: string) {
-    console.log('item', uidItem);
     this.ingresoEgresoSrv.borrarIngresoEgreso(uidItem)
       .then(res => {
-        console.log('res', res);
       }).catch(err => {
-        console.log('err', err);
       });
   }
 

@@ -59,7 +59,6 @@ export class IngresoEgresoComponent implements OnInit, OnDestroy {
   }
 
   changeTipoIngresoEgreso() {
-    console.log('tipo', this.tipo);
     if (this.tipo === 'egreso') {
       this.tipo = 'ingreso';
     } else {
