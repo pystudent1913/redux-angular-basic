@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Firebase
@@ -21,22 +20,18 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CommonModule } from '@angular/common';
 
-import { ChartsModule } from 'ng2-charts';
 import { AuthModule } from './auth/auth.module';
-import { SharedModule } from './shared/shared.module';
-import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.component';
+import { IngresoEgresoModule } from './ingreso-egreso/ingreso-egreso.module';
 
 
 @NgModule({
    declarations: [
-      AppComponent,
-      DashboardComponent
+      AppComponent
    ],
    imports: [
       // Mis modulos propios
       AuthModule,
-      SharedModule,
-      IngresoEgresoComponent,
+      IngresoEgresoModule,
       // Demas
       AppRoutingModule,
       BrowserModule,

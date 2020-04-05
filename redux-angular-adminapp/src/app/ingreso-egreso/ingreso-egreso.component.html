@@ -36,7 +36,7 @@
                 <button
                   type="button"
                   class="btn btn-primary btn-block"
-                  [ngClass]="tipo == 'ingreso' ? 'btn-primary' : 'btn-warning'"
+                  [ngClass]="(tipo == 'ingreso') ? 'btn-primary' : 'btn-warning'"
                   (click)="changeTipoIngresoEgreso()">
                   {{ tipo == 'ingreso' ?  'Ingreso' : 'Egreso' }}
                 </button>

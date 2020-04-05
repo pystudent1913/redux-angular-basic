@@ -21,7 +21,9 @@ const rutasHijas: Routes = [
     imports: [
         RouterModule.forChild( rutasHijas )
     ],
-    exports: [],
+    exports: [
+        RouterModule
+    ],
     providers: [],
 })
 export class DashboardRoutesModule {}
