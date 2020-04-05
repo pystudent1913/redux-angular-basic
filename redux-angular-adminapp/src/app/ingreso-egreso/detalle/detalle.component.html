@@ -16,13 +16,18 @@
           </thead>
 
           <tbody>
-            <ng-container *ngFor="let item of ingresosEgresos2">
+            <ng-container *ngFor="let item of ingresosEgresos">
               <tr>
                 <td>{{ item.descripcion }}</td>
                 <td>{{ item.monto }}</td>
-                <td>{{ item.tipo }}</td>
+                <td
+                  [class.text-success]="item.tipo === 'ingreso'"
+                  [class.text-danger]="item.tipo === 'egreso'"
+                >
+                  {{ item.tipo }}
+                </td>
                 <td>
-                  <button class="btn btn-danger">
+                  <button class="btn btn-danger" (click)="borrar( item.id )">
                     <i class="fa fa-trash"></i>
                     Borrar
                   </button>
