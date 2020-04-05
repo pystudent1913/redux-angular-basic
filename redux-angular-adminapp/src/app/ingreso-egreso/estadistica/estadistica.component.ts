@@ -40,6 +40,11 @@ export class EstadisticaComponent implements OnInit {
   }
 
   generarEstadistica(items: IngresoEgreso[]) {
+    this.totalIngresos = 0;
+    this.ingresos = 0;
+    this.totalEgresos = 0;
+    this.egresos = 0;
+
     items.map(item => {
       if (item.tipo === 'ingreso') {
         this.totalIngresos += +item.monto;
