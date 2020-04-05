@@ -1,6 +1,6 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { IngresoEgresoervice } from '../services/ingreso-egreso.service';
+import { IngresoEgresoService } from '../services/ingreso-egreso.service';
 import { IngresoEgreso } from '../models/ingreso-egreso.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.reducer';
@@ -21,7 +21,7 @@ export class IngresoEgresoComponent implements OnInit, OnDestroy {
 
   constructor(
     private _formBuiled: FormBuilder,
-    private _ingresoEgresoSrv: IngresoEgresoervice,
+    private _ingresoEgresoSrv: IngresoEgresoService,
     private _store: Store<AppState>
   ) { }
 

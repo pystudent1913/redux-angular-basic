@@ -16,7 +16,7 @@ import { AuthService } from './auth.service';
 @Injectable({
     providedIn: 'root'
 })
-export class IngresoEgresoervice {
+export class IngresoEgresoService {
 
     constructor(
         private _auth: AngularFireAuth,
@@ -47,5 +47,10 @@ export class IngresoEgresoervice {
                     });
                 })
             );
+    }
+
+    borrarIngresoEgreso( uidItem: string) {
+        const uid = this._authSrv.user.uid;
+        return this.firestore.doc(`${uid}/ingresos-egresos/items/${uidItem}`).delete();
     }
 }

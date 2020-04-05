@@ -3,6 +3,7 @@ import { AppState } from '../../app.reducer';
 import { Store } from '@ngrx/store';
 import { IngresoEgreso } from '../../models/ingreso-egreso.model';
 import { Subscription } from 'rxjs';
+import { IngresoEgresoService } from '../../services/ingreso-egreso.service';
 
 @Component({
   selector: 'app-detalle',
@@ -15,7 +16,8 @@ export class DetalleComponent implements OnInit, OnDestroy {
   ingresosEgresosSubs$: Subscription;
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private ingresoEgresoSrv: IngresoEgresoService
   ) { }
 
   ngOnInit() {
@@ -31,8 +33,14 @@ export class DetalleComponent implements OnInit, OnDestroy {
     this.ingresosEgresosSubs$.unsubscribe();
   }
 
-  borrar(item) {
-    console.log('item', item);
+  borrar(uidItem: string) {
+    console.log('item', uidItem);
+    this.ingresoEgresoSrv.borrarIngresoEgreso(uidItem)
+      .then(res => {
+        console.log('res', res);
+      }).catch(err => {
+        console.log('err', err);
+      });
   }
 
 }

@@ -3,7 +3,7 @@ import { AppState } from '../app.reducer';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
-import { IngresoEgresoervice } from '../services/ingreso-egreso.service';
+import { IngresoEgresoService } from '../services/ingreso-egreso.service';
 import * as ingresoEgresoActions from '../ingreso-egreso/ingreso-egreso.actions';
 import { IngresoEgreso } from '../models/ingreso-egreso.model';
 
@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<AppState>,
-    private ingresoEgresoSrv: IngresoEgresoervice,
+    private ingresoEgresoSrv: IngresoEgresoService,
   ) { }
 
   ngOnInit() {
