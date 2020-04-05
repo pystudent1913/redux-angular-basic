@@ -27,6 +27,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CommonModule } from '@angular/common';
 import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
+import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 
 @NgModule({
    declarations: [
@@ -38,7 +39,8 @@ import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
       FooterComponent,
       NavbarComponent,
       SidebarComponent,
-      DetalleComponent
+      DetalleComponent,
+      OrdenIngresoPipe
    ],
    imports: [
       AppRoutingModule,

@@ -16,10 +16,10 @@
           </thead>
 
           <tbody>
-            <ng-container *ngFor="let item of ingresosEgresos">
+            <ng-container *ngFor="let item of ingresosEgresos | ordenIngreso">
               <tr>
                 <td>{{ item.descripcion }}</td>
-                <td>{{ item.monto }}</td>
+                <td>{{ item.monto | currency:'CURRENCY' }}</td>
                 <td
                   [class.text-success]="item.tipo === 'ingreso'"
                   [class.text-danger]="item.tipo === 'egreso'"
