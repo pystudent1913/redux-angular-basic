@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './auth/register/register.component';
 import { CommonModule } from '@angular/common';
+import { AuthGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'register' , component: RegisterComponent },
   {
     path: '',
+    canLoad: [ AuthGuard ],
     loadChildren: () => import('./ingreso-egreso/ingreso-egreso.module')
                           .then(m => m.IngresoEgresoModule)
   },
