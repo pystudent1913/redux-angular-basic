@@ -6,6 +6,5 @@ export const setItems = createAction(
     props<{ items: IngresoEgreso[] }>()
 );
 export const unsetItems = createAction(
-    '[IngresoEgreso Component] unsetItems',
-    props<{ items: IngresoEgreso[] }>()
+    '[IngresoEgreso Component] unsetItems'
 );

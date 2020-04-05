@@ -9,6 +9,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../app.reducer';
 import * as auth from '../auth/auth.actions';
 import { Subscription } from 'rxjs';
+import * as ingresoEgresoActions from '../ingreso-egreso/ingreso-egreso.actions';
 
 
 @Injectable({
@@ -45,6 +46,9 @@ export class AuthService {
         this._user = null;
         this.userSubscription$.unsubscribe();
         this._store.dispatch( auth.unsetUser() );
+
+        // Vamos a borrar la informacion de la persona
+        this._store.dispatch( ingresoEgresoActions.unsetItems() );
       }
 
     });
