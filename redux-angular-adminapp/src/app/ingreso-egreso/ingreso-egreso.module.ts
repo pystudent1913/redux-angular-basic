@@ -8,6 +8,7 @@ import { OrdenIngresoPipe } from '../pipes/orden-ingreso.pipe';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 import { SharedModule } from '../shared/shared.module';
+import { DashboardRoutesModule } from '../dashboard/dashboard-router.module';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { SharedModule } from '../shared/shared.module';
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
-        SharedModule // Esto se da porque usamos los componentes del sharedmodule
+        SharedModule, // Esto se da porque usamos los componentes del sharedmodule
+        DashboardRoutesModule
     ],
     exports: [],
     providers: [],
