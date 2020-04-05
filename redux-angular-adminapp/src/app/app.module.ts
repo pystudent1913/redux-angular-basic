@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,7 @@ import { appReducers } from './app.reducer';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
    declarations: [
@@ -37,8 +39,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       SidebarComponent
    ],
    imports: [
-      BrowserModule,
       AppRoutingModule,
+      BrowserModule,
+      CommonModule,
       ReactiveFormsModule,
       AngularFireModule.initializeApp(environment.firebase),
       AngularFirestoreModule,

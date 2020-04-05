@@ -15,12 +15,19 @@
             </thead>
 
             <tbody>
-              <tr>
-                <td>Descripción</td>
-                <td>Monto</td>
-                <td>Tipo</td>
-                <td>acciones</td>
-              </tr>
+              <div *ngFor="let item of ingresosEgresos2">
+                <tr>
+                  <td>{{ item.descripcion }}</td>
+                  <td>{{ item.monto }}</td>
+                  <td>{{ item.tipo }}</td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fa fa-trash"></i>
+                      Borrar
+                    </button>
+                  </td>
+                </tr>
+              </div>
             </tbody>
 
           </table>
