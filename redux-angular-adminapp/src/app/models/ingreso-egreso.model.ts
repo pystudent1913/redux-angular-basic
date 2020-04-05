@@ -3,7 +3,7 @@ export class IngresoEgreso {
     constructor(
         public descripcion: string,
         public monto: number,
-        public tipo: string,
+        public tipo: tipoIngresoEgreso,
         // public uid?: string,
     ) {
 
@@ -11,3 +11,5 @@ export class IngresoEgreso {
 
 
 }
+
+type tipoIngresoEgreso = 'ingreso' | 'egreso' | string;
