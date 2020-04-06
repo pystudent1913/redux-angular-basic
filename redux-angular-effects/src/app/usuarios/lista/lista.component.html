@@ -1,3 +1,13 @@
-<p>
-    holaaaaaaaaaa
-</p>
+<div class="card-columns">
+    <div class="card" *ngFor="let i of usuarios">
+        <img [src]="i.avatar" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">
+                {{ i.first_name }}
+            </h5>
+            <p class="card-text">
+                {{ i.last_name }}
+            </p>
+        </div>
+    </div>
+</div>

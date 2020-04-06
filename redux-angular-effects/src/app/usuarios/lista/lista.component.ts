@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { map } from 'rxjs/operators';
+import { Usuario } from '../../models/usuario.model';
 
 @Component({
     selector: 'app-lista',
@@ -8,6 +9,8 @@ import { map } from 'rxjs/operators';
     styleUrls: ['./lista.component.scss']
 })
 export class ListaComponent implements OnInit {
+    usuarios: Usuario[] = [];
+
     constructor(
         private usuarioSrv: UsuarioService
     ) { }
@@ -15,8 +18,6 @@ export class ListaComponent implements OnInit {
     ngOnInit(): void {
 
         this.usuarioSrv.getUsers()
-            .subscribe( res => {
-                console.log('res', res)
-            });
+            .subscribe( res => this.usuarios = res);
     }
 }
