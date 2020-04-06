@@ -1,4 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
+import { Usuario } from '../../models/usuario.model';
 import { 
     cargarUsuarios,
     cargarUsuariosError,
@@ -6,20 +7,20 @@ import {
 } from '../actions';
 
 export interface UsuariosState {
-    users: [];
+    users: Usuario[];
     loaded: boolean;
     loading: boolean;
-    error: boolean;
+    error: any;
 }
 
 export const usuariosInitialState: UsuariosState = {
     users: [],
     loaded: false,
     loading: false,
-    error: false
+    error: null
 }
 
-const _counterReducer = createReducer(usuariosInitialState,
+const _usuariosReducer = createReducer(usuariosInitialState,
 
     on(cargarUsuarios, state => {
         return {
@@ -40,12 +41,16 @@ const _counterReducer = createReducer(usuariosInitialState,
             ...state,
             loading: false,
             loaded: false,
-            error: payload
-        };
+            error: {
+                url: payload.url,
+                name: payload.name,
+                message: payload.message
+            }
+        }
     }),
 
 );
 
-export function counterReducer(state, action) {
-    return _counterReducer(state, action);
+export function usuariosReducer(state, action) {
+    return _usuariosReducer(state, action);
 }

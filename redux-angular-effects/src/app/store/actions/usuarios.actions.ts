@@ -10,6 +10,6 @@ export const cargarUsuariosSuccess = createAction(
 
 export const cargarUsuariosError = createAction(
     '[Usuarios] cargar Usuarios error',
-    props<{ payload: any}>()
+    props<{ payload: any }>()
 );
 
