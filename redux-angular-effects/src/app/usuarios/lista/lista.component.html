@@ -1,13 +1,43 @@
-<div class="card-columns">
-    <div class="card" *ngFor="let i of usuarios">
-        <img [src]="i.avatar" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">
-                {{ i.first_name }}
-            </h5>
-            <p class="card-text">
-                {{ i.last_name }}
-            </p>
+<ng-container *ngIf="loading; then isLoading; else loaded">
+</ng-container>
+
+
+<ng-template #isLoading>
+    <div class="alert alert-info text-center" role="alert">
+        <h4 class="alert-heading">
+            Cargando...
+        </h4>
+        <p>
+            <i class="fa fa-sync fa-spin fa-2x"></i>
+        </p>
+        <p class="mb-0"></p>
+    </div>
+</ng-template>
+
+<ng-container *ngIf="error">
+    <div class="alert alert-danger text-center" role="alert">
+        <h4 class="alert-heading">
+            Error
+        </h4>
+        <pre>
+            {{ error | json }}
+        </pre>
+        <p class="mb-0"></p>
+    </div>
+</ng-container>
+
+<ng-template #loaded>
+    <div #loaded class="card-columns">
+        <div class="card" *ngFor="let i of usuarios">
+            <img [src]="i.avatar" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ i.first_name }}
+                </h5>
+                <p class="card-text">
+                    {{ i.last_name }}
+                </p>
+            </div>
         </div>
     </div>
-</div>
+</ng-template>

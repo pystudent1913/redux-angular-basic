@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class UsuarioService {
 
-    private url: string = 'https://reqres.in/api33';
+    private url: string = 'https://reqres.in/api';
 
     constructor(
         private http: HttpClient
@@ -17,7 +17,7 @@ export class UsuarioService {
     }
 
     getUsers() {
-        return this.http.get(`${this.url}/users?per_page=6`)
+        return this.http.get(`${this.url}/users?per_page=6&delay=3`)
                     .pipe(
                         map( ({ data }: any) => data)
                     );

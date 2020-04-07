@@ -13,14 +13,22 @@ import { cargarUsuarios } from '../../store/actions/usuarios.actions';
 })
 export class ListaComponent implements OnInit {
     usuarios: Usuario[] = [];
+    loading: boolean = false;
+    error: any;
 
     constructor(
         private store: Store<AppState>
         // Vamos a quitar el servicio desde componentes
         // private usuarioSrv: UsuarioService
-    ) {
+        ) {
+        console.log('1')
         this.store.select('usuarios')
-            .subscribe( ({ users }) => this.usuarios = users);
+            .subscribe( ({ users, loading, error }) => {
+                console.log('hola')
+                this.usuarios = users;
+                this.loading  = loading;
+                this.error    = error;
+            });
     }
 
     ngOnInit(): void {

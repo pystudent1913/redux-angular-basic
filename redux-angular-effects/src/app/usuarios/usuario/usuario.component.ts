@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-usuario',
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./usuario.component.scss']
 })
 export class UsuarioComponent implements OnInit {
-    constructor() { }
+    
+    constructor(
+        private router: ActivatedRoute
+    ) { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        this.router.params.subscribe( ({ id }) => {
+            console.log('--->', id);
+        });
+    }
 }
